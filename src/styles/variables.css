@@ -1,0 +1,10 @@
+:root {
+  --font-size-normal: 18px;
+  --font-famaly: "Graphik", Tahoma, Geneva, Verdana, sans-serif;
+
+  --main-color: #FFF;
+  --accent-color: #F6F8FA;
+  --title-color: #191C1F;
+  --text-accent-color: #5E646A;
+  --hover-text-color: #2A6CEA;
+}
