@@ -2,9 +2,25 @@
   --font-size-normal: 18px;
   --font-famaly: "Graphik", Tahoma, Geneva, Verdana, sans-serif;
 
-  --main-color: #FFF;
-  --accent-color: #F6F8FA;
-  --title-color: #191C1F;
-  --text-accent-color: #5E646A;
-  --hover-text-color: #2A6CEA;
+  --main-color: #fff;
+  --accent-color: #f6f8fa;
+  --title-color: #191c1f;
+  --text-accent-color: #5e646a;
+  --hover-text-color: #2a6cea;
+
+  --space-sm: 8px;
+  --space-lg: 32px;
+
+  --space-xs: 0.25rem;
+  --space-md: 1rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  --size-sm: 0.5rem;
+  --size-md: 1rem;
+  --size-lg: 1.5rem;
+  --size-xl: 2rem;
+  --size-2xl: 3rem;
+  --size-3xl: 4rem;
 }

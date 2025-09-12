@@ -19,6 +19,7 @@
     "@babel/runtime": "^7.28.4",
     "babel-loader": "^10.0.0",
     "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^13.0.1",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.4",
     "postcss": "^8.5.6",
@@ -30,5 +31,13 @@
     "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F1N0M1/Internetlab-task.git"
+  },
+  "bugs": {
+    "url": "https://github.com/F1N0M1/Internetlab-task/issues"
+  },
+  "homepage": "https://github.com/F1N0M1/Internetlab-task#readme"
 }

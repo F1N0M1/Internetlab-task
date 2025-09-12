@@ -23,12 +23,12 @@
                 >
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#section_reviews">3-й блок</a>
+                <a class="nav__link" href="#info-block">3-й блок</a>
               </li>
               <li class="nav__item">
                 <a class="nav__link" href="#section_faq">Вопросы и ответы</a>
               </li>
-              <li class="nav__item"><a class="nav__link" href="#">Форма</a></li>
+              <li class="nav__item"><a class="nav__link" href="#section_form">Форма</a></li>
             </ul>
           </nav>
         </div>
@@ -40,7 +40,7 @@
         >
         <button class="cover__button">Проще простого!</button>
       </section>
-      <section class="section section_how-it-works">
+      <section class="section section_how-it-works" id="section_how-it-works">
         <h2 class="section__title">Как это работает</h2>
         <ul class="features">
           <li class="features__item features__item--read">
@@ -70,7 +70,7 @@
             </p>
           </li>
         </ul>
-        <div class="info-block">
+        <div class="info-block" id="info-block">
           <div class="info-block__content">
             <h3 class="info-block__title">
               Круто, ты&nbsp;дошел до&nbsp;третьего блока
@@ -94,11 +94,52 @@
           />
         </div>
       </section>
-      <section class="section section_reviews accent-color">
+      <section
+        class="section section_reviews accent--color"
+        id="section_reviews"
+      >
         <h2 class="section__title">Отзывы</h2>
-        <div class="slider"></div>
+        <div class="reviews__slider">
+          <div class="reviews__wrapper">
+            <div class="reviews__track" id="reviewsTrack"></div>
+          </div>
+
+          <button
+            class="reviews__button reviews__button--prev"
+            aria-label="Предыдущий отзыв"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m23.839 2.276c0.2429-0.25147 0.3773-0.58827 0.3742-0.93787-3e-3 -0.34959-0.1432-0.68401-0.3904-0.93122s-0.5817-0.38744-0.9313-0.39047c-0.3495-0.0030379-0.6863 0.13135-0.9378 0.37423l-10.896 10.896c-1.2498 1.2502-1.9519 2.9456-1.9519 4.7134 0 1.7677 0.7021 3.4631 1.9519 4.7133l10.896 10.896c0.2515 0.2429 0.5883 0.3773 0.9378 0.3742 0.3496-3e-3 0.6841-0.1432 0.9313-0.3904s0.3874-0.5817 0.3904-0.9313c0.0031-0.3496-0.1313-0.6864-0.3742-0.9378l-10.896-10.896c-0.7499-0.7501-1.1711-1.7674-1.1711-2.828 0-1.0607 0.4212-2.0779 1.1711-2.828l10.896-10.896z"
+                fill="#C2C8CD"
+              />
+            </svg>
+          </button>
+
+          <button
+            class="reviews__button reviews__button--next"
+            aria-label="Следующий отзыв"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m23.839 2.276c0.2429-0.25147 0.3773-0.58827 0.3742-0.93787-3e-3 -0.34959-0.1432-0.68401-0.3904-0.93122s-0.5817-0.38744-0.9313-0.39047c-0.3495-0.0030379-0.6863 0.13135-0.9378 0.37423l-10.896 10.896c-1.2498 1.2502-1.9519 2.9456-1.9519 4.7134 0 1.7677 0.7021 3.4631 1.9519 4.7133l10.896 10.896c0.2515 0.2429 0.5883 0.3773 0.9378 0.3742 0.3496-3e-3 0.6841-0.1432 0.9313-0.3904s0.3874-0.5817 0.3904-0.9313c0.0031-0.3496-0.1313-0.6864-0.3742-0.9378l-10.896-10.896c-0.7499-0.7501-1.1711-1.7674-1.1711-2.828 0-1.0607 0.4212-2.0779 1.1711-2.828l10.896-10.896z"
+                fill="#C2C8CD"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="reviews__pagination" id="reviewsPagination"></div>
       </section>
-      <section class="section section_faq">
+      <section class="section section_faq" id="section_faq">
         <h2 class="section__title">Вопросы и ответы</h2>
         <div class="faq">
           <details class="faq__item">
@@ -197,7 +238,7 @@
           </details>
         </div>
       </section>
-      <section class="section section_stats accent-color">
+      <section class="section section_stats accent--color">
         <div class="stats__item">
           <h3 class="stats__title">Опрошенных пользовались микрокредитами</h3>
           <p class="stats__description">
@@ -249,7 +290,7 @@
           </p>
         </div>
       </section>
-      <section class="section">
+      <section class="section" id="section_form">
         <h2 class="section__title">Отправь форму</h2>
         <form class="form" action="#">
           <label class="form__label">
@@ -261,6 +302,7 @@
               required
             />
             <span class="form__placeholder">Имя</span>
+            <span class="form__error"></span> 
           </label>
           <label class="form__label">
             <input
@@ -271,10 +313,15 @@
               required
             />
             <span class="form__placeholder">Телефон</span>
+            <span class="form__error"></span> 
           </label>
           <label class="form__checkbox-label">
-            <input class="form__checkbox" type="checkbox" name="agreement" required />
-             <span class="form__checkbox-custom"></span>
+            <input
+              class="form__checkbox"
+              type="checkbox"
+              name="agreement"
+            />
+            <span class="form__checkbox-custom"></span>
             <span class="form__checkbox-text"
               >Согласие на обработку данных</span
             >
@@ -285,4 +332,21 @@
       <footer class="footer">&copy;&nbsp;2021 Лаборатория интернет</footer>
     </main>
   </body>
+
+  <template id="review-template">
+    <article class="review-card">
+      <div class="review-card__header">
+        <figure class="review-card__avatar">
+          <span class="review-card__initials"></span>
+        </figure>
+        <div class="review-card__info">
+          <h3 class="review-card__name"></h3>
+          <address class="review-card__location"></address>
+        </div>
+      </div>
+      <blockquote class="review-card__content">
+        <p class="review-card__text"></p>
+      </blockquote>
+    </article>
+  </template>
 </html>
