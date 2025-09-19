@@ -35,6 +35,13 @@ export default {
         },
       },
       {
+        test: /\.svg$/,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext]",
+        },
+      },
+      {
         test: /\.(scss|sass)$/,
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },

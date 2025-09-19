@@ -7,7 +7,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Internetlab-task2</title>
+    <title>Internetlab-task</title>
   </head>
   <body>
     <main class="content">
@@ -16,7 +16,25 @@
         <div class="cover__top-container">
           <a class="cover__logo" href="/"></a>
           <nav class="nav">
+            <button class="nav__burger" type="button" aria-label="Открыть меню">
+              <img
+                src="<%=require('./images/menu-button.svg')%>"
+                alt="Меню"
+                class="nav__burger-icon"
+              />
+            </button>
             <ul class="nav__list">
+              <div class="nav__burger-header">
+                <a class="nav__logo" href="/"></a>
+
+                <button
+                  class="nav__close"
+                  type="button"
+                  aria-label="Закрыть меню"
+                >
+                  ×
+                </button>
+              </div>
               <li class="nav__item">
                 <a class="nav__link" href="#section_how-it-works"
                   >Как это работает</a
@@ -28,8 +46,11 @@
               <li class="nav__item">
                 <a class="nav__link" href="#section_faq">Вопросы и ответы</a>
               </li>
-              <li class="nav__item"><a class="nav__link" href="#section_form">Форма</a></li>
+              <li class="nav__item">
+                <a class="nav__link" href="#section_form">Форма</a>
+              </li>
             </ul>
+            <div class="nav__overlay"></div>
           </nav>
         </div>
         <h1 class="cover__title">
@@ -302,7 +323,7 @@
               required
             />
             <span class="form__placeholder">Имя</span>
-            <span class="form__error"></span> 
+            <span class="form__error"></span>
           </label>
           <label class="form__label">
             <input
@@ -313,14 +334,10 @@
               required
             />
             <span class="form__placeholder">Телефон</span>
-            <span class="form__error"></span> 
+            <span class="form__error"></span>
           </label>
           <label class="form__checkbox-label">
-            <input
-              class="form__checkbox"
-              type="checkbox"
-              name="agreement"
-            />
+            <input class="form__checkbox" type="checkbox" name="agreement" />
             <span class="form__checkbox-custom"></span>
             <span class="form__checkbox-text"
               >Согласие на обработку данных</span

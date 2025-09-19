@@ -1,5 +1,4 @@
-import { reviews } from "../starage.js";
-
+import { reviews } from "../storage.js";
 
 export class ReviewsSlider {
   constructor() {
@@ -51,12 +50,12 @@ export class ReviewsSlider {
 
   getSlidesToShow() {
     const width = window.innerWidth;
-    if (width < 375) return 1;
-    if (width < 768) return 1;
-    if (width < 1920) return 2;
-    return 3;
+    if (width >= 1200) return 3; // 3 слайда от 1200px
+    if (width >= 768) return 2; // 2 слайда от 768px до 1200px
+    return 1; // 1 слайд меньше 768px
   }
 
+  // Остальные методы остаются без изменений
   async loadReviews() {
     this.reviews = reviews;
     this.totalSlides = this.reviews.length;
@@ -95,7 +94,6 @@ export class ReviewsSlider {
       img.className = "review-card__photo";
       img.alt = review.name;
 
-      // ИСПРАВЛЕННЫЙ ПУТЬ - используйте относительный путь от dist
       img.src = `images/${review.photo || "unnamed.png"}`;
 
       img.onerror = () => {
@@ -269,7 +267,6 @@ export class ReviewsSlider {
       }
     };
 
-    // Touch events
     this.track.addEventListener("touchstart", (e) => {
       handleStart(e.touches[0].clientX);
     });

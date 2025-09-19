@@ -2,6 +2,7 @@ import "./styles/main.css";
 import { SmoothScroll } from "./components/smoothScroll.js";
 import { ReviewsSlider } from "./components/reviewsSlider.js";
 import { FormValidator } from "./components/formValidator.js";
+import { MobileMenu } from "./components/mobileMenu.js";
 
 class App {
   constructor() {
@@ -12,9 +13,8 @@ class App {
     document.addEventListener("DOMContentLoaded", () => {
       this.initReviewsSlider();
       this.initFormValidation();
-      this.initFAQAccordion(); // Раскомментируйте если есть
       this.initSmoothScroll();
-      // this.addServiceWorker(); // Опционально
+      this.initMobileMenu();
     });
   }
 
@@ -32,14 +32,6 @@ class App {
     }
   }
 
-  initFAQAccordion() {
-    // Раскомментируйте если есть FAQAccordion
-    // const faqItems = document.querySelectorAll('.faq__item');
-    // if (faqItems.length > 0 && typeof FAQAccordion !== 'undefined') {
-    //   new FAQAccordion();
-    // }
-  }
-
   initSmoothScroll() {
     const navLinks = document.querySelectorAll('.nav__link[href^="#"]');
     if (navLinks.length > 0 && typeof SmoothScroll !== "undefined") {
@@ -47,8 +39,18 @@ class App {
     }
   }
 
+  initMobileMenu() {
+    const burger = document.querySelector(".nav__burger");
+    const menu = document.querySelector(".nav__list");
+    const overlay = document.querySelector(".nav__overlay");
+
+    // Проверяем, что все элементы меню существуют
+    if (burger && menu && overlay) {
+      new MobileMenu();
+    }
+  }
+
   addServiceWorker() {
-    // Опционально: регистрация Service Worker
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
         .register("/sw.js")
@@ -60,8 +62,6 @@ class App {
   }
 }
 
-// Инициализация приложения
 new App();
 
-// Экспорт для тестирования
 export { App };

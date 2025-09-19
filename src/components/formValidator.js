@@ -11,7 +11,6 @@ export class FormValidator {
   }
 
   init() {
-    // Валидируем только текстовые поля
     this.inputs.forEach((input) => {
       if (input.name === "phone") {
         input.addEventListener("input", (e) => this.formatPhone(e));
@@ -21,7 +20,6 @@ export class FormValidator {
       input.addEventListener("blur", () => this.validateField(input));
     });
 
-    // Для чекбокса только обновляем состояние кнопки
     if (this.checkbox) {
       this.checkbox.addEventListener("change", () => this.updateSubmitButton());
     }
@@ -33,17 +31,14 @@ export class FormValidator {
     const input = e.target;
     let value = input.value.replace(/\D/g, "");
 
-    // Если первая цифра 8, заменяем на +7
     if (value.startsWith("8")) {
       value = "7" + value.slice(1);
     }
 
-    // Ограничиваем длину номера (11 цифр: +7 и 10 цифр номера)
     if (value.length > 11) {
       value = value.slice(0, 11);
     }
 
-    // Форматируем номер
     let formattedValue = "";
     if (value) {
       formattedValue = "+7 ";
@@ -67,21 +62,17 @@ export class FormValidator {
   }
 
   handlePhoneKeydown(e) {
-    // Разрешаем: backspace, delete, tab, escape, enter
     if (
       [46, 8, 9, 27, 13].includes(e.keyCode) ||
-      // Разрешаем: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
       (e.keyCode === 65 && e.ctrlKey === true) ||
       (e.keyCode === 67 && e.ctrlKey === true) ||
       (e.keyCode === 86 && e.ctrlKey === true) ||
       (e.keyCode === 88 && e.ctrlKey === true) ||
-      // Разрешаем: стрелки влево/вправо, home, end
       (e.keyCode >= 35 && e.keyCode <= 39)
     ) {
       return;
     }
 
-    // Запрещаем все, кроме цифр
     if (
       (e.keyCode < 48 || e.keyCode > 57) &&
       (e.keyCode < 96 || e.keyCode > 105)
@@ -147,7 +138,6 @@ export class FormValidator {
   }
 
   validatePhone(phone) {
-    // Проверяем полный формат: +7 (123) 456-78-90
     const regex = /^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/;
     return regex.test(phone.trim());
   }
@@ -163,7 +153,6 @@ export class FormValidator {
   }
 
   getFormData() {
-    // Очищаем номер телефона от форматирования перед отправкой
     let cleanPhone = this.form.phone.value.replace(/\D/g, "");
     if (cleanPhone.startsWith("7")) {
       cleanPhone = "+7" + cleanPhone.slice(1);

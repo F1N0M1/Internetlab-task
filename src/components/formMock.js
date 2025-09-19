@@ -1,18 +1,14 @@
-// formMock.js
 export class FormMock {
   static async submitForm(formData) {
     return new Promise((resolve, reject) => {
       console.log("Отправка данных формы:", formData);
 
-      // Имитация задержки сети (1-3 секунды)
       const delay = 1000 + Math.random() * 2000;
 
       setTimeout(() => {
-        // 85% успешных отправок, 15% ошибок
         const isSuccess = Math.random() > 0.15;
 
         if (isSuccess) {
-          // Имитация успешного ответа от сервера
           console.log("✅ Форма успешно отправлена!", formData);
           resolve({
             success: true,
@@ -21,7 +17,6 @@ export class FormMock {
             data: formData,
           });
         } else {
-          // Имитация различных ошибок сервера
           const errors = [
             { message: "Ошибка сервера: попробуйте еще раз", code: 500 },
             { message: "Таймаут соединения", code: 408 },
@@ -36,11 +31,10 @@ export class FormMock {
     });
   }
 
-  // Дополнительная функция для тестирования
   static simulateNetworkConditions() {
     return {
-      latency: Math.floor(Math.random() * 200) + 50, // 50-250ms
-      successRate: 0.85, // 85% успеха
+      latency: Math.floor(Math.random() * 200) + 50,
+      successRate: 0.85,
     };
   }
 }
